@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" rx="12" fill="#FDF8F3"/>
+  <rect x="30" y="30" width="540" height="340" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <!-- Doctor Desk & Consultation Chairs -->
+  <rect x="180" y="160" width="240" height="90" rx="8" fill="#F1F5F9" stroke="#0E4E63" stroke-width="1.5"/>
+  <rect x="230" y="180" width="80" height="50" rx="4" fill="#E2E8F0"/>
+  <circle cx="200" cy="120" r="28" fill="#0E4E63"/>
+  <circle cx="390" cy="120" r="28" fill="#D97736"/>
+  <!-- Diplomas / Certificates on wall -->
+  <rect x="80" y="60" width="60" height="45" rx="3" fill="#FAF9F6" stroke="#94A3B8"/>
+  <rect x="160" y="60" width="60" height="45" rx="3" fill="#FAF9F6" stroke="#94A3B8"/>
+  <!-- Placeholder label -->
+  <rect x="60" y="310" width="480" height="36" rx="6" fill="#FFFFFF" stroke="#0E4E63" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="300" y="333" font-family="'Noto Sans', sans-serif" font-size="12" font-weight="600" fill="#0E4E63" text-anchor="middle">
+    [CLINIC_PHOTO_3: Doctor Consultation &amp; Counseling Area]
+  </text>
+</svg>

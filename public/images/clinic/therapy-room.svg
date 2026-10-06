@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" rx="12" fill="#F0F7F9"/>
+  <rect x="30" y="30" width="540" height="340" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <!-- Room Details -->
+  <rect x="80" y="100" width="120" height="180" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="95" y="120" width="40" height="30" rx="4" fill="#D97736"/>
+  <rect x="145" y="120" width="40" height="30" rx="4" fill="#0E4E63"/>
+  <rect x="95" y="160" width="90" height="20" rx="4" fill="#CBD5E1"/>
+  <rect x="95" y="190" width="90" height="20" rx="4" fill="#CBD5E1"/>
+  
+  <!-- Therapy table & chairs -->
+  <rect x="250" y="200" width="220" height="80" rx="8" fill="#E8F4F8" stroke="#0E4E63" stroke-width="1.5"/>
+  <rect x="270" y="220" width="40" height="40" rx="4" fill="#D97736"/>
+  <text x="283" y="246" font-family="'Noto Sans', sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">1</text>
+  <rect x="320" y="220" width="40" height="40" rx="4" fill="#0E4E63"/>
+  <text x="333" y="246" font-family="'Noto Sans', sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">2</text>
+  <!-- Placeholder label -->
+  <rect x="60" y="310" width="480" height="36" rx="6" fill="#FFFFFF" stroke="#0E4E63" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="300" y="333" font-family="'Noto Sans', sans-serif" font-size="12" font-weight="600" fill="#0E4E63" text-anchor="middle">
+    [CLINIC_PHOTO_1: Pediatric Speech Therapy Room]
+  </text>
+</svg>

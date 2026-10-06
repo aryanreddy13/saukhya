@@ -1,0 +1,68 @@
+---
+import { getClinicStatus } from '../utils/clinicStatus';
+
+interface Props {
+  class?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { class: className = '', size = 'md' } = Astro.props;
+const status = getClinicStatus();
+
+const isOpen = status.isOpen;
+const statusText = status.displayText;
+
+const sizeClasses = {
+  sm: 'text-xs px-2.5 py-1 gap-1.5',
+  md: 'text-xs sm:text-sm px-3 py-1.5 gap-2',
+  lg: 'text-sm sm:text-base px-4 py-2 gap-2.5'
+}[size];
+---
+
+<div 
+  class={`clinic-status-badge inline-flex items-center font-medium rounded-full border shadow-xs transition-colors duration-200 ${isOpen ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-slate-100 text-slate-700 border-slate-200'} ${sizeClasses} ${className}`}
+  id="clinic-status-container"
+  data-is-open={isOpen ? "true" : "false"}
+  data-status-key={status.statusKey}
+  data-time={status.timeStr || ""}
+  data-day={status.dayStr || ""}
+>
+  <span class="relative flex h-2.5 w-2.5">
+    {isOpen ? (
+      <>
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+      </>
+    ) : (
+      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-400"></span>
+    )}
+  </span>
+  <span id="clinic-status-text" class="tracking-tight">{statusText}</span>
+</div>
+
+<script>
+  // Re-calculate or re-localize client side if language changes
+  function updateBadgeLocalization() {
+    const badge = document.getElementById('clinic-status-container');
+    const textEl = document.getElementById('clinic-status-text');
+    if (!badge || !textEl || !window.saukhyaTranslations) return;
+
+    const lang = window.saukhyaCurrentLang || localStorage.getItem('saukhya_lang') || 'en';
+    const dict = window.saukhyaTranslations[lang] || window.saukhyaTranslations.en;
+    const statusDict = dict.status;
+    if (!statusDict) return;
+
+    const key = badge.getAttribute('data-status-key');
+    const timeStr = badge.getAttribute('data-time') || '';
+    const dayStr = badge.getAttribute('data-day') || '';
+
+    let template = statusDict[key] || statusDict.openNow;
+    if (template) {
+      template = template.replace('{time}', timeStr).replace('{day}', dayStr);
+      textEl.textContent = template;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', updateBadgeLocalization);
+  document.addEventListener('saukhya:languageChanged', updateBadgeLocalization);
+</script>

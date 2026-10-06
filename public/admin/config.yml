@@ -1,0 +1,118 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Local backend support for local testing
+local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "reception_settings"
+    label: "Receptionist Clinic Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "site_config"
+        label: "Clinic Hours, Notices & Reviews"
+        file: "src/content/site.config.json"
+        format: "json"
+        fields:
+          # 1. Clinic Timings
+          - label: "Clinic Timings"
+            name: "hours"
+            widget: "object"
+            hint: "Update operating hours for each day of the week."
+            fields:
+              - label: "Monday"
+                name: "monday"
+                widget: "object"
+                fields:
+                  - { label: "Opening Time (24h format)", name: "open", widget: "string", default: "10:00" }
+                  - { label: "Closing Time (24h format)", name: "close", widget: "string", default: "20:00" }
+                  - { label: "Display Label", name: "label", widget: "string", default: "10:00 AM – 8:00 PM" }
+                  - { label: "Closed Today", name: "isClosed", widget: "boolean", default: false }
+              - label: "Tuesday"
+                name: "tuesday"
+                widget: "object"
+                fields:
+                  - { label: "Opening Time (24h format)", name: "open", widget: "string", default: "10:00" }
+                  - { label: "Closing Time (24h format)", name: "close", widget: "string", default: "20:00" }
+                  - { label: "Display Label", name: "label", widget: "string", default: "10:00 AM – 8:00 PM" }
+                  - { label: "Closed Today", name: "isClosed", widget: "boolean", default: false }
+              - label: "Wednesday"
+                name: "wednesday"
+                widget: "object"
+                fields:
+                  - { label: "Opening Time (24h format)", name: "open", widget: "string", default: "10:00" }
+                  - { label: "Closing Time (24h format)", name: "close", widget: "string", default: "20:00" }
+                  - { label: "Display Label", name: "label", widget: "string", default: "10:00 AM – 8:00 PM" }
+                  - { label: "Closed Today", name: "isClosed", widget: "boolean", default: false }
+              - label: "Thursday"
+                name: "thursday"
+                widget: "object"
+                fields:
+                  - { label: "Opening Time (24h format)", name: "open", widget: "string", default: "10:00" }
+                  - { label: "Closing Time (24h format)", name: "close", widget: "string", default: "20:00" }
+                  - { label: "Display Label", name: "label", widget: "string", default: "10:00 AM – 8:00 PM" }
+                  - { label: "Closed Today", name: "isClosed", widget: "boolean", default: false }
+              - label: "Friday"
+                name: "friday"
+                widget: "object"
+                fields:
+                  - { label: "Opening Time (24h format)", name: "open", widget: "string", default: "10:00" }
+                  - { label: "Closing Time (24h format)", name: "close", widget: "string", default: "20:00" }
+                  - { label: "Display Label", name: "label", widget: "string", default: "10:00 AM – 8:00 PM" }
+                  - { label: "Closed Today", name: "isClosed", widget: "boolean", default: false }
+              - label: "Saturday"
+                name: "saturday"
+                widget: "object"
+                fields:
+                  - { label: "Opening Time (24h format)", name: "open", widget: "string", default: "10:00" }
+                  - { label: "Closing Time (24h format)", name: "close", widget: "string", default: "20:00" }
+                  - { label: "Display Label", name: "label", widget: "string", default: "10:00 AM – 8:00 PM" }
+                  - { label: "Closed Today", name: "isClosed", widget: "boolean", default: false }
+              - label: "Sunday"
+                name: "sunday"
+                widget: "object"
+                fields:
+                  - { label: "Opening Time (24h format)", name: "open", widget: "string", default: "10:00" }
+                  - { label: "Closing Time (24h format)", name: "close", widget: "string", default: "14:00" }
+                  - { label: "Display Label", name: "label", widget: "string", default: "Closed" }
+                  - { label: "Closed Today", name: "isClosed", widget: "boolean", default: true }
+
+          # 2. Camp Banner
+          - label: "Camp Banner"
+            name: "camp"
+            widget: "object"
+            hint: "Announce free speech or hearing screening camps."
+            fields:
+              - { label: "Show Camp Banner", name: "enabled", widget: "boolean", default: false }
+              - { label: "Camp Title", name: "title", widget: "string" }
+              - { label: "Short Description", name: "description", widget: "text" }
+              - { label: "Date (e.g. Sunday, 25 October)", name: "date", widget: "string" }
+              - { label: "Time (e.g. 10:00 AM – 3:00 PM)", name: "time", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Registration Status", name: "registrationStatus", widget: "select", options: ["Open", "Filling Fast", "Closed"], default: "Open" }
+
+          # 3. Holiday Notice
+          - label: "Holiday Notice / Closure Banner"
+            name: "holiday"
+            widget: "object"
+            hint: "Show an alert banner at the top of the website for holidays or temporary closures."
+            fields:
+              - { label: "Show Holiday Notice", name: "enabled", widget: "boolean", default: false }
+              - { label: "Message", name: "message", widget: "string", hint: "e.g. Clinic closed on 2 October (Gandhi Jayanti). We reopen on 3 October at 10:00 AM." }
+              - { label: "Start Date (YYYY-MM-DD)", name: "startDate", widget: "string" }
+              - { label: "End Date (YYYY-MM-DD)", name: "endDate", widget: "string" }
+
+          # 4. Google Ratings (Manual Verified Sync)
+          - label: "Google Rating & Review Count"
+            name: "google"
+            widget: "object"
+            hint: "Update verified Google star rating and total count as new reviews arrive."
+            fields:
+              - { label: "Google Star Rating (e.g. 5.0)", name: "rating", widget: "string" }
+              - { label: "Total Review Count (e.g. 14)", name: "reviewCount", widget: "string" }

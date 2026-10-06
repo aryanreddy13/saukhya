@@ -1,0 +1,203 @@
+---
+interface Photo {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+interface Props {
+  photos: Photo[];
+  title?: string;
+  subtitle?: string;
+}
+
+const { 
+  photos, 
+  title = "Inside Our Clinic",
+  subtitle = "A warm, sanitized, and child-friendly environment designed for comfortable therapy."
+} = Astro.props;
+---
+
+<section class="py-12 sm:py-16 bg-white" aria-label="Clinic Photo Gallery">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" data-i18n="gallery.title">
+        {title}
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 mt-2" data-i18n="gallery.subtitle">
+        {subtitle}
+      </p>
+      <p class="text-xs text-slate-400 mt-1" data-i18n="gallery.tapToEnlarge">
+        (Click or tap image to enlarge)
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class={`grid grid-cols-1 sm:grid-cols-2 ${photos.length <= 3 ? 'md:grid-cols-3' : 'md:grid-cols-3 lg:grid-cols-3'} gap-6`}>
+      {photos.map((photo, index) => (
+        <button
+          type="button"
+          class="gallery-item group relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 text-left focus:outline-none focus:ring-3 focus:ring-teal-700 cursor-pointer shadow-xs hover:shadow-md transition-all duration-200 aspect-4/3"
+          data-src={photo.src}
+          data-alt={photo.alt}
+          data-caption={photo.caption || photo.alt}
+          data-index={index}
+          aria-label={`View photo ${index + 1}: ${photo.caption || photo.alt}`}
+        >
+          <img 
+            src={photo.src} 
+            alt={photo.alt}
+            class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+            width="600"
+            height="400"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-slate-950/70 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <span class="text-xs sm:text-sm font-semibold text-white line-clamp-1">
+              {photo.caption || photo.alt}
+            </span>
+          </div>
+        </button>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- Accessible Lightbox Modal (Global) -->
+<div 
+  id="accessible-lightbox" 
+  class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md items-center justify-center p-4 sm:p-8"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+  aria-label="Image Preview"
+>
+  <!-- Lightbox Content Container -->
+  <div class="relative max-w-4xl w-full flex flex-col items-center">
+    
+    <!-- Top Bar Controls -->
+    <div class="w-full flex items-center justify-between text-white pb-3">
+      <span id="lightbox-caption" class="text-sm font-medium text-slate-200 truncate pr-4"></span>
+      <button 
+        type="button" 
+        id="lightbox-close-btn" 
+        class="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-white cursor-pointer"
+        aria-label="Close preview"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Image Display -->
+    <div class="relative w-full max-h-[75vh] flex items-center justify-center rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
+      <img 
+        id="lightbox-img" 
+        src="" 
+        alt="" 
+        class="max-h-[70vh] w-auto max-w-full object-contain rounded-lg shadow-2xl" 
+      />
+
+      <!-- Previous Image Button -->
+      <button 
+        type="button" 
+        id="lightbox-prev-btn" 
+        class="absolute left-2 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-white cursor-pointer shadow-lg"
+        aria-label="Previous image"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Next Image Button -->
+      <button 
+        type="button" 
+        id="lightbox-next-btn" 
+        class="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-white cursor-pointer shadow-lg"
+        aria-label="Next image"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  let currentIndex = 0;
+  let galleryItems: HTMLElement[] = [];
+
+  const modal = document.getElementById('accessible-lightbox');
+  const img = document.getElementById('lightbox-img') as HTMLImageElement;
+  const caption = document.getElementById('lightbox-caption');
+  const closeBtn = document.getElementById('lightbox-close-btn');
+  const prevBtn = document.getElementById('lightbox-prev-btn');
+  const nextBtn = document.getElementById('lightbox-next-btn');
+
+  function openLightbox(index: number) {
+    if (!modal || !img || !caption || galleryItems.length === 0) return;
+    currentIndex = (index + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[currentIndex];
+    
+    img.src = item.getAttribute('data-src') || '';
+    img.alt = item.getAttribute('data-alt') || '';
+    if (caption) caption.textContent = item.getAttribute('data-caption') || item.getAttribute('data-alt') || '';
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeBtn?.focus();
+  }
+
+  function closeLightbox() {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    
+    // Return focus to triggered item
+    if (galleryItems[currentIndex]) {
+      galleryItems[currentIndex].focus();
+    }
+  }
+
+  function nextPhoto() {
+    openLightbox(currentIndex + 1);
+  }
+
+  function prevPhoto() {
+    openLightbox(currentIndex - 1);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+
+    galleryItems.forEach((btn, idx) => {
+      btn.addEventListener('click', () => openLightbox(idx));
+    });
+
+    closeBtn?.addEventListener('click', closeLightbox);
+    nextBtn?.addEventListener('click', nextPhoto);
+    prevBtn?.addEventListener('click', prevPhoto);
+
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!modal || modal.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextPhoto();
+      if (e.key === 'ArrowLeft') prevPhoto();
+    });
+  });
+</script>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="16" fill="#F0F7F9"/>
+  <circle cx="200" cy="150" r="60" fill="#0E4E63"/>
+  <!-- Stethoscope / Medical Coat -->
+  <path d="M110 320 C110 240 150 220 200 220 C250 220 290 240 290 320" fill="#0E4E63"/>
+  <path d="M160 225 L200 290 L240 225" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="200" cy="305" r="8" fill="#D97736"/>
+  <!-- Placeholder Label -->
+  <rect x="30" y="340" width="340" height="34" rx="6" fill="#FFFFFF" stroke="#0E4E63" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="200" y="362" font-family="'Noto Sans', sans-serif" font-size="12" font-weight="600" fill="#0E4E63" text-anchor="middle">
+    [DOCTOR_PHOTO: Verified Doctor 1 Portrait]
+  </text>
+</svg>

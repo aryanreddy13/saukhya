@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+import siteConfig from '../content/site.config.json';
+import SEO from '../components/SEO.astro';
+import HolidayNotice from '../components/HolidayNotice.astro';
+import Header from '../components/Header.astro';
+import MobileBottomBar from '../components/MobileBottomBar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  currentPath?: string;
+}
+
+const { title, description, image, currentPath = Astro.url.pathname } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0E4E63" />
+
+    <!-- Google Fonts Preconnect & Noto Sans + Noto Sans Devanagari -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" 
+      rel="stylesheet"
+    />
+
+    <!-- SEO Meta Tags & JSON-LD Structured Data -->
+    <SEO title={title} description={description} image={image} />
+
+    <!-- Analytics Integrations if Configured -->
+    {siteConfig.analytics.provider === 'ga4' && siteConfig.analytics.id && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analytics.id}`}></script>
+        <script is:inline define:vars={{ gaId: siteConfig.analytics.id }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId, { anonymize_ip: true });
+        </script>
+      </>
+    )}
+
+    {siteConfig.analytics.provider === 'plausible' && siteConfig.analytics.id && (
+      <script defer data-domain={siteConfig.analytics.id} src="https://plausible.io/js/script.js"></script>
+    )}
+
+    <!-- Translation Data & Client Scripts -->
+    <script is:inline src="/scripts/translations-data.js"></script>
+    <script is:inline src="/scripts/analytics.js"></script>
+    <script is:inline src="/scripts/i18n.js"></script>
+  </head>
+  <body class="bg-warm-50 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-teal-700 selection:text-white">
+    <!-- Accessible Skip to Content Link -->
+    <a href="#main-content" class="skip-link">
+      Skip to main content
+    </a>
+
+    <!-- Top Holiday / Closure Banner -->
+    <HolidayNotice />
+
+    <!-- Main Navigation Header -->
+    <Header currentPath={currentPath} />
+
+    <!-- Page Body -->
+    <main id="main-content" class="flex-1 pb-16 md:pb-0 outline-none" tabindex="-1">
+      <slot />
+    </main>
+
+    <!-- Global Footer -->
+    <Footer />
+
+    <!-- Mobile Fixed Bottom CTA Bar -->
+    <MobileBottomBar />
+  </body>
+</html>

@@ -1,0 +1,225 @@
+{
+  "siteUrl": "https://saukhyaclinic.com",
+  "clinic": {
+    "name": "Saukhya",
+    "fullName": "Saukhya Speech, Language & Hearing Clinic",
+    "tagline": "Speech, Language and Hearing Care in Vikhroli, Mumbai",
+    "phone": "+91 98200 00000",
+    "phoneRaw": "+919820000000",
+    "whatsapp": "+91 98200 00000",
+    "whatsappRaw": "919820000000",
+    "email": "contact@saukhyaclinic.com",
+    "addressLine1": "Shop No. [SHOP_NO], [BUILDING_NAME]",
+    "addressLine2": "[STREET_NAME], Near Vikhroli Railway Station (East/West)",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "pincode": "400083",
+    "fullAddress": "Shop No. [SHOP_NO], [BUILDING_NAME], [STREET_NAME], Vikhroli, Mumbai, Maharashtra 400083",
+    "landmark": "Near Vikhroli Railway Station",
+    "parking": "[PARKING_INFO: Street parking available nearby / Paid parking at station]",
+    "entrance": "[ENTRANCE_INFO: Ground floor entrance / Wheelchair accessible ramp available]",
+    "latitude": 19.1114,
+    "longitude": 72.9284
+  },
+  "hours": {
+    "monday": { "open": "10:00", "close": "20:00", "isClosed": false, "label": "10:00 AM – 8:00 PM" },
+    "tuesday": { "open": "10:00", "close": "20:00", "isClosed": false, "label": "10:00 AM – 8:00 PM" },
+    "wednesday": { "open": "10:00", "close": "20:00", "isClosed": false, "label": "10:00 AM – 8:00 PM" },
+    "thursday": { "open": "10:00", "close": "20:00", "isClosed": false, "label": "10:00 AM – 8:00 PM" },
+    "friday": { "open": "10:00", "close": "20:00", "isClosed": false, "label": "10:00 AM – 8:00 PM" },
+    "saturday": { "open": "10:00", "close": "20:00", "isClosed": false, "label": "10:00 AM – 8:00 PM" },
+    "sunday": { "open": "10:00", "close": "14:00", "isClosed": true, "label": "Closed" }
+  },
+  "google": {
+    "rating": "5.0",
+    "reviewCount": "14",
+    "reviewLink": "https://g.page/r/[GOOGLE_REVIEW_LINK]/review",
+    "mapsLink": "https://maps.google.com/?q=Saukhya+Speech+and+Hearing+Clinic+Vikhroli+Mumbai",
+    "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8!2d72.9284!3d19.1114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA2JzQxLjAiTiA3MsKwNTUnNDIuMiJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+  },
+  "trust": {
+    "yearsExperience": "8+",
+    "servicesUnderOneRoof": "Speech + Language + Hearing",
+    "languagesSpoken": "English · हिन्दी · मराठी"
+  },
+  "pricing": {
+    "mode": "from",
+    "consultationFrom": "900",
+    "currency": "₹",
+    "note": "Fees may vary depending on the service. Please contact the clinic for current fees."
+  },
+  "camp": {
+    "enabled": false,
+    "title": "Free Speech & Hearing Screening Camp",
+    "description": "Comprehensive speech, language & hearing evaluation for children and senior citizens.",
+    "date": "Sunday, 25 October",
+    "time": "10:00 AM – 3:00 PM",
+    "location": "Saukhya Clinic, Vikhroli, Mumbai",
+    "registrationStatus": "Open"
+  },
+  "holiday": {
+    "enabled": false,
+    "message": "Clinic closed on 2 October (Gandhi Jayanti). We reopen on 3 October at 10:00 AM.",
+    "startDate": "2026-10-02",
+    "endDate": "2026-10-02"
+  },
+  "team": [
+    {
+      "id": "specialist-1",
+      "name": "Dr. [DOCTOR_NAME_1]",
+      "role": "Speech-Language Pathologist & Audiologist",
+      "qualification": "BASLP, MASLP (RCI Registered)",
+      "experience": "[X]+ years clinical experience",
+      "specialization": "Pediatric Speech Therapy, Language Delays, Stuttering, Articulation Therapy",
+      "languages": "English, Hindi, Marathi",
+      "photo": "/images/team/doctor-1.svg",
+      "rciReg": "RCI Reg: [RCI_NUMBER_1]"
+    },
+    {
+      "id": "specialist-2",
+      "name": "Dr. [DOCTOR_NAME_2]",
+      "role": "Audiologist & Speech Therapist",
+      "qualification": "BASLP (RCI Registered)",
+      "experience": "[X]+ years clinical experience",
+      "specialization": "Diagnostic Audiometry, Hearing Aid Fitting & Trials, Tinnitus Management",
+      "languages": "English, Hindi, Marathi",
+      "photo": "/images/team/doctor-2.svg",
+      "rciReg": "RCI Reg: [RCI_NUMBER_2]"
+    }
+  ],
+  "services": [
+    {
+      "id": "speech-therapy",
+      "category": "speech_hearing",
+      "name": "Speech Therapy",
+      "shortDesc": "Clear speech, pronunciation, and stuttering/fluency support for children and adults.",
+      "whoItHelps": "Children with speech delay, clarity issues, stammering, or adult voice difficulties.",
+      "image": "/images/services/speech-therapy.svg"
+    },
+    {
+      "id": "language-therapy",
+      "category": "speech_hearing",
+      "name": "Language Therapy",
+      "shortDesc": "Building vocabulary, sentence formation, social communication, and comprehension skills.",
+      "whoItHelps": "Children with developmental language delays, autism spectrum, or expressive challenges.",
+      "image": "/images/services/language-therapy.svg"
+    },
+    {
+      "id": "pediatric-therapy",
+      "category": "speech_hearing",
+      "name": "Pediatric Therapy",
+      "shortDesc": "Child-centric, play-based early intervention for toddlers and school-age children.",
+      "whoItHelps": "Toddlers not yet speaking, school-age children with learning & communication barriers.",
+      "image": "/images/services/pediatric-therapy.svg"
+    },
+    {
+      "id": "hearing-assessment",
+      "category": "audiology",
+      "name": "Hearing Assessment",
+      "shortDesc": "Comprehensive pure tone audiometry and diagnostic hearing evaluations.",
+      "whoItHelps": "Individuals experiencing hearing difficulty, ringing in ears (tinnitus), or elderly family members.",
+      "image": "/images/services/hearing-assessment.svg"
+    },
+    {
+      "id": "hearing-aids",
+      "category": "audiology",
+      "name": "Hearing Aid Consultation & Fitting",
+      "shortDesc": "Trial, selection, and digital programming of advanced hearing aid technologies.",
+      "whoItHelps": "Patients with diagnosed hearing loss seeking comfortable, discreet listening solutions.",
+      "image": "/images/services/hearing-aids.svg"
+    },
+    {
+      "id": "voice-therapy",
+      "category": "speech_hearing",
+      "name": "Voice Therapy",
+      "shortDesc": "Specialized rehabilitation for vocal strain, hoarseness, and professional voice users.",
+      "whoItHelps": "Teachers, singers, public speakers, or individuals with persistent vocal fatigue.",
+      "image": "/images/services/voice-therapy.svg"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "review-1",
+      "author": "Pooja S.",
+      "relation": "Parent",
+      "rating": 5,
+      "text": "The therapists at Saukhya are exceptionally patient and gentle with children. We noticed steady improvements in our son's speech clarity within a few months of regular sessions."
+    },
+    {
+      "id": "review-2",
+      "author": "Rajesh M.",
+      "relation": "Patient's Son",
+      "rating": 5,
+      "text": "Took my mother for a hearing evaluation. The doctor explained the audiometry report clearly without rushing us or pushing unnecessary products. Very honest and warm clinic."
+    },
+    {
+      "id": "review-3",
+      "author": "Aniket K.",
+      "relation": "Adult Patient",
+      "rating": 5,
+      "text": "Very professional and calm environment right in Vikhroli. Practical guidance given for speech fluency. Highly recommended for both children and adults."
+    }
+  ],
+  "photos": {
+    "hero": "/images/hero-clinic.svg",
+    "entrance": "/images/clinic/entrance.svg",
+    "gallery": [
+      {
+        "src": "/images/clinic/therapy-room.svg",
+        "alt": "Saukhya Pediatric Speech Therapy Room with child-friendly learning tools",
+        "caption": "Child-friendly Speech Therapy Room"
+      },
+      {
+        "src": "/images/clinic/audiology-booth.svg",
+        "alt": "Sound-treated audiometry booth for diagnostic hearing testing",
+        "caption": "Sound-Treated Audiology Testing Booth"
+      },
+      {
+        "src": "/images/clinic/consultation-area.svg",
+        "alt": "Parent consultation and doctor evaluation desk at Saukhya Clinic",
+        "caption": "Quiet Consultation & Counseling Area"
+      }
+    ],
+    "aboutGallery": [
+      {
+        "src": "/images/clinic/therapy-room.svg",
+        "alt": "Pediatric therapy corner",
+        "caption": "Pediatric Therapy Corner"
+      },
+      {
+        "src": "/images/clinic/audiology-booth.svg",
+        "alt": "Audiology diagnostic equipment",
+        "caption": "Audiometry & Hearing Assessment"
+      },
+      {
+        "src": "/images/clinic/consultation-area.svg",
+        "alt": "Doctor consultation desk",
+        "caption": "Doctor Consultation Area"
+      },
+      {
+        "src": "/images/clinic/entrance.svg",
+        "alt": "Clinic entrance at Vikhroli",
+        "caption": "Clinic Entrance in Vikhroli"
+      },
+      {
+        "src": "/images/clinic/waiting-area.svg",
+        "alt": "Calm and comfortable patient waiting area",
+        "caption": "Comfortable Waiting Lounge"
+      },
+      {
+        "src": "/images/clinic/camp-photo.svg",
+        "alt": "Community hearing screening session",
+        "caption": "Community Screening Outreach"
+      }
+    ]
+  },
+  "analytics": {
+    "provider": "none",
+    "id": ""
+  },
+  "social": {
+    "instagram": "",
+    "facebook": "",
+    "googleBusiness": "https://maps.google.com/?q=Saukhya+Speech+and+Hearing+Clinic+Vikhroli+Mumbai"
+  }
+}

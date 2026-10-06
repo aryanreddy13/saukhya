@@ -1,0 +1,108 @@
+---
+import siteConfig from '../content/site.config.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+  type?: string;
+}
+
+const {
+  title = `${siteConfig.clinic.name} | Speech, Language & Hearing Clinic in Vikhroli, Mumbai`,
+  description = "Saukhya is a trusted speech, language and hearing clinic in Vikhroli, Mumbai. Providing expert speech therapy, pediatric language intervention, hearing assessments, and hearing aid trials.",
+  image = `${siteConfig.siteUrl}/images/hero-clinic.svg`,
+  canonicalUrl = Astro.url.href,
+  type = "website"
+} = Astro.props;
+
+// Schema.org MedicalBusiness / LocalBusiness structured data
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": siteConfig.clinic.fullName,
+  "alternateName": siteConfig.clinic.name,
+  "description": description,
+  "url": siteConfig.siteUrl,
+  "logo": `${siteConfig.siteUrl}/images/logo.svg`,
+  "image": image,
+  "telephone": siteConfig.clinic.phoneRaw,
+  "email": siteConfig.clinic.email,
+  "priceRange": siteConfig.pricing.mode === 'from' ? `₹${siteConfig.pricing.consultationFrom}+` : '₹₹',
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": `${siteConfig.clinic.addressLine1}, ${siteConfig.clinic.addressLine2}`,
+    "addressLocality": siteConfig.clinic.city,
+    "addressRegion": siteConfig.clinic.state,
+    "postalCode": siteConfig.clinic.pincode,
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": siteConfig.clinic.latitude,
+    "longitude": siteConfig.clinic.longitude
+  },
+  "hasMap": siteConfig.google.mapsLink,
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "10:00",
+      "closes": "20:00"
+    }
+  ],
+  "medicalSpecialty": [
+    "SpeechPathology",
+    "Audiology"
+  ],
+  "availableService": siteConfig.services.map(s => ({
+    "@type": "MedicalTherapy",
+    "name": s.name,
+    "description": s.shortDesc
+  })),
+  "aggregateRating": siteConfig.google.rating && siteConfig.google.reviewCount ? {
+    "@type": "AggregateRating",
+    "ratingValue": siteConfig.google.rating,
+    "reviewCount": siteConfig.google.reviewCount,
+    "bestRating": "5",
+    "worstRating": "1"
+  } : undefined,
+  "sameAs": [
+    siteConfig.social.googleBusiness,
+    siteConfig.social.facebook,
+    siteConfig.social.instagram
+  ].filter(Boolean)
+};
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Multilingual SEO hreflang -->
+<link rel="alternate" hreflang="en" href={`${siteConfig.siteUrl}/`} />
+<link rel="alternate" hreflang="hi" href={`${siteConfig.siteUrl}/`} />
+<link rel="alternate" hreflang="mr" href={`${siteConfig.siteUrl}/`} />
+<link rel="alternate" hreflang="x-default" href={`${siteConfig.siteUrl}/`} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content={siteConfig.clinic.fullName} />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter / X -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalUrl} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

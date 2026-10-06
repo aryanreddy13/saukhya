@@ -1,0 +1,109 @@
+---
+import siteConfig from '../content/site.config.json';
+import { getWhatsAppLink } from '../utils/whatsapp';
+import ClinicStatusBadge from './ClinicStatusBadge.astro';
+
+const whatsappLink = getWhatsAppLink();
+const phoneLink = `tel:${siteConfig.clinic.phoneRaw}`;
+---
+
+<section class="relative overflow-hidden pt-8 pb-12 sm:pt-14 sm:pb-20 bg-linear-to-b from-teal-50/60 via-white to-warm-50/40">
+  <!-- Subtle decorative background ambient circle -->
+  <div class="absolute top-0 right-1/4 w-96 h-96 bg-teal-100/40 rounded-full blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+  <div class="absolute bottom-0 left-10 w-72 h-72 bg-amber-100/30 rounded-full blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      
+      <!-- Left Column: Copy & CTAs -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left">
+        
+        <!-- Status & Location Pill -->
+        <div class="flex flex-wrap items-center gap-2.5 mb-5">
+          <ClinicStatusBadge size="md" />
+          <span class="inline-flex items-center gap-1 text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+            <svg class="w-3.5 h-3.5 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span data-i18n="hero.badge">Speech &amp; Hearing Care · Vikhroli</span>
+          </span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 
+          class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-4 sm:mb-6"
+          data-i18n="hero.headline"
+        >
+          Helping Children and Adults Communicate, Hear and Connect Better.
+        </h1>
+
+        <!-- Supporting Subheadline -->
+        <p 
+          class="text-base sm:text-lg md:text-xl text-slate-600 font-normal leading-relaxed mb-8 max-w-2xl"
+          data-i18n="hero.subheadline"
+        >
+          Compassionate, evidence-based speech, language and hearing care in Vikhroli, Mumbai.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
+          
+          <!-- Primary CTA: WhatsApp -->
+          <a 
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:py-4 rounded-xl text-base font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all duration-150 active:scale-98 min-h-[48px]"
+            data-event="whatsapp_click"
+            data-event-label="hero_whatsapp"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.678.077-1.138-.073-.298-.098-.679-.228-1.229-.467-2.345-1.018-3.874-3.4-3.993-3.559-.117-.159-.958-1.275-.958-2.43 0-1.157.607-1.724.823-1.96.216-.236.471-.295.628-.295.157 0 .314.002.451.009.147.007.345-.056.54.412.206.495.706 1.722.765 1.843.06.12.1.261.02.421-.08.16-.12.26-.24.4-.12.14-.251.312-.36.42-.12.12-.244.25-.105.49.14.24.62 1.024 1.33 1.657.915.815 1.688 1.068 1.928 1.188.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.08.985z"/>
+            </svg>
+            <span data-i18n="hero.ctaWhatsApp">Book on WhatsApp</span>
+          </a>
+
+          <!-- Secondary CTA: Call Clinic -->
+          <a 
+            href={phoneLink}
+            class="inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:py-4 rounded-xl text-base font-semibold text-teal-900 bg-white hover:bg-teal-50/80 border border-slate-300 hover:border-teal-300 shadow-xs transition-all duration-150 min-h-[48px]"
+            data-event="call_click"
+            data-event-label="hero_call"
+          >
+            <svg class="w-5 h-5 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span data-i18n="hero.ctaCall">Call Clinic</span>
+          </a>
+
+        </div>
+
+        <!-- Subtle trust reassurance note below CTAs -->
+        <p class="mt-4 text-xs text-slate-500 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span>Certified speech-language &amp; hearing specialists. Prior appointment recommended.</span>
+        </p>
+
+      </div>
+
+      <!-- Right Column: Hero Visual Slot -->
+      <div class="lg:col-span-5 relative">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 bg-white aspect-4/3 sm:aspect-16/11 lg:aspect-4/3">
+          <img 
+            src={siteConfig.photos.hero}
+            alt="Saukhya Speech and Hearing Clinic Therapy Room and Diagnostic Area"
+            class="w-full h-full object-cover object-center"
+            width="800"
+            height="600"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

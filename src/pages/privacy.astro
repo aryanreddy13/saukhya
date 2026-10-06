@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import siteConfig from '../content/site.config.json';
+
+const { clinic } = siteConfig;
+---
+
+<Layout 
+  title="Privacy Policy | Saukhya Speech & Hearing Clinic"
+  description="Learn about our privacy practices, data handling, and compliance with the Digital Personal Data Protection (DPDP) Act of India."
+  currentPath="/privacy"
+>
+  <div class="py-12 sm:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="border-b border-slate-200 pb-8 mb-8">
+        <span class="text-xs font-bold text-teal-800 uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-200 inline-block mb-3">
+          Legal &amp; Privacy
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2" data-i18n="privacy.title">
+          Privacy Policy
+        </h1>
+        <p class="text-sm text-slate-500" data-i18n="privacy.lastUpdated">
+          Last updated: October 2026
+        </p>
+      </div>
+
+      <!-- Content Sections -->
+      <div class="prose prose-slate max-w-none space-y-8 text-slate-700 text-sm sm:text-base leading-relaxed">
+        
+        <div>
+          <p data-i18n="privacy.intro">
+            At <strong>{clinic.fullName}</strong> ("Saukhya", "we", "our", or "us"), we are committed to safeguarding the privacy and personal data of our patients, families, and website visitors in accordance with the Digital Personal Data Protection (DPDP) Act of India.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+          <h2 class="text-lg font-bold text-slate-900 mb-2" data-i18n="privacy.collectionTitle">
+            1. Information We Collect
+          </h2>
+          <p data-i18n="privacy.collectionDesc">
+            When you contact us via WhatsApp, phone call, email, or voluntary camp registration forms, we receive basic contact details such as your name, phone number, child's age, and a brief summary of your inquiry. We use this information solely to respond to your request and schedule appointments.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+          <h2 class="text-lg font-bold text-slate-900 mb-2" data-i18n="privacy.noMedicalTitle">
+            2. What We Do NOT Collect On This Website
+          </h2>
+          <p data-i18n="privacy.noMedicalDesc">
+            This website does not store medical records, diagnostic evaluations, medical histories, or payment card information. No health data is stored in website databases or transmitted to third-party marketing services.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+          <h2 class="text-lg font-bold text-slate-900 mb-2" data-i18n="privacy.whatsappTitle">
+            3. WhatsApp Communication
+          </h2>
+          <p data-i18n="privacy.whatsappDesc">
+            When you click any WhatsApp booking or inquiry button on this site, your device launches the WhatsApp application or web client directly to message our clinic. Your conversation is protected by WhatsApp’s own end-to-end encryption and terms of service.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+          <h2 class="text-lg font-bold text-slate-900 mb-2" data-i18n="privacy.analyticsTitle">
+            4. Website Analytics &amp; Cookies
+          </h2>
+          <p data-i18n="privacy.analyticsDesc">
+            We use lightweight, privacy-focused analytics to count overall website visits and high-level button interactions (such as click-to-call). We do NOT track individual personal identities, IP addresses, or cross-site browsing behaviors.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+          <h2 class="text-lg font-bold text-slate-900 mb-2" data-i18n="privacy.noSharingTitle">
+            5. No Sale of Personal Data
+          </h2>
+          <p data-i18n="privacy.noSharingDesc">
+            We never sell, rent, trade, or share your personal information with external advertisers, lead generation companies, or third parties.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+          <h2 class="text-lg font-bold text-slate-900 mb-2" data-i18n="privacy.rightsTitle">
+            6. Your Rights &amp; Data Deletion
+          </h2>
+          <p data-i18n="privacy.rightsDesc">
+            You have the right to request access to, correction of, or deletion of your contact records at any time. Simply contact our clinic via phone or email, and we will honor your request promptly.
+          </p>
+        </div>
+
+        <div class="bg-teal-50 rounded-2xl p-6 border border-teal-200">
+          <h2 class="text-lg font-bold text-teal-900 mb-2" data-i18n="privacy.contactTitle">
+            7. Contact Us Regarding Privacy
+          </h2>
+          <p data-i18n="privacy.contactDesc" class="mb-3">
+            If you have questions about this privacy notice, please reach out to us:
+          </p>
+          <ul class="space-y-1 text-xs sm:text-sm text-teal-950 font-medium">
+            <li><strong>Clinic:</strong> {clinic.fullName}</li>
+            <li><strong>Address:</strong> {clinic.fullAddress}</li>
+            <li><strong>Phone:</strong> {clinic.phone}</li>
+            <li><strong>Email:</strong> {clinic.email}</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</Layout>

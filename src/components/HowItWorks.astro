@@ -1,0 +1,68 @@
+---
+const steps = [
+  {
+    number: "01",
+    titleKey: "howItWorks.step1Title",
+    descKey: "howItWorks.step1Desc",
+    defaultTitle: "1. Book Appointment",
+    defaultDesc: "Reach out via WhatsApp or phone to choose a convenient consultation time slot."
+  },
+  {
+    number: "02",
+    titleKey: "howItWorks.step2Title",
+    descKey: "howItWorks.step2Desc",
+    defaultTitle: "2. Assessment & Discussion",
+    defaultDesc: "Our specialist conducts a thorough evaluation and listens closely to your family's concerns."
+  },
+  {
+    number: "03",
+    titleKey: "howItWorks.step3Title",
+    descKey: "howItWorks.step3Desc",
+    defaultTitle: "3. Personalized Care Plan",
+    defaultDesc: "We outline practical milestones, session recommendations, and home practice exercises."
+  },
+  {
+    number: "04",
+    titleKey: "howItWorks.step4Title",
+    descKey: "howItWorks.step4Desc",
+    defaultTitle: "4. Regular Progress Review",
+    defaultDesc: "Continuous guidance, progress tracking, and supportive family counseling at every step."
+  }
+];
+---
+
+<section class="py-12 sm:py-16 bg-white" aria-label="First Visit Process">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-xs font-bold text-teal-800 uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60 inline-block mb-3">
+        Patient Journey
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="howItWorks.title">
+        How Your First Visit Works
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 mt-2" data-i18n="howItWorks.subtitle">
+        A simple, transparent 4-step journey designed to make your experience comfortable and reassuring.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {steps.map((step) => (
+        <div class="bg-slate-50/70 rounded-2xl p-6 border border-slate-200 relative flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-teal-800 text-white flex items-center justify-center font-black text-lg mb-4 shadow-xs">
+              {step.number}
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2" data-i18n={step.titleKey}>
+              {step.defaultTitle}
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n={step.descKey}>
+              {step.defaultDesc}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

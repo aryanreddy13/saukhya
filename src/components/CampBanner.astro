@@ -1,0 +1,274 @@
+---
+import siteConfig from '../content/site.config.json';
+
+const { camp } = siteConfig;
+const isCampEnabled = camp && camp.enabled;
+---
+
+{isCampEnabled && (
+  <section class="my-10 sm:my-14" aria-label="Special Screening Camp">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative overflow-hidden rounded-3xl bg-linear-to-r from-teal-800 to-teal-950 text-white p-6 sm:p-10 shadow-xl border border-teal-700">
+        <!-- Decorative Glow -->
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-amber-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          
+          <div class="lg:col-span-8">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-slate-950 uppercase tracking-wider mb-3">
+              <span class="w-2 h-2 rounded-full bg-slate-950 animate-pulse"></span>
+              <span data-i18n="camp.badge">Community Health Initiative</span>
+            </span>
+
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2">
+              {camp.title}
+            </h2>
+            <p class="text-teal-100 text-sm sm:text-base mb-6 max-w-2xl leading-relaxed">
+              {camp.description}
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm text-teal-100">
+              <div class="flex items-center gap-2 bg-teal-900/60 p-2.5 rounded-xl border border-teal-700/60">
+                <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span><strong>Date:</strong> {camp.date}</span>
+              </div>
+              <div class="flex items-center gap-2 bg-teal-900/60 p-2.5 rounded-xl border border-teal-700/60">
+                <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span><strong>Time:</strong> {camp.time}</span>
+              </div>
+              <div class="flex items-center gap-2 bg-teal-900/60 p-2.5 rounded-xl border border-teal-700/60">
+                <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                </svg>
+                <span class="truncate"><strong>Location:</strong> {camp.location}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 flex flex-col sm:items-start lg:items-end justify-center">
+            <button 
+              type="button"
+              id="open-camp-modal-btn"
+              class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-lg transition-transform duration-150 active:scale-98 cursor-pointer w-full sm:w-auto"
+            >
+              <svg class="w-5 h-5 text-slate-950" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.678.077-1.138-.073-.298-.098-.679-.228-1.229-.467-2.345-1.018-3.874-3.4-3.993-3.559-.117-.159-.958-1.275-.958-2.43 0-1.157.607-1.724.823-1.96.216-.236.471-.295.628-.295.157 0 .314.002.451.009.147.007.345-.056.54.412.206.495.706 1.722.765 1.843.06.12.1.261.02.421-.08.16-.12.26-.24.4-.12.14-.251.312-.36.42-.12.12-.244.25-.105.49.14.24.62 1.024 1.33 1.657.915.815 1.688 1.068 1.928 1.188.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.08.985z"/>
+              </svg>
+              <span data-i18n="camp.button">Register on WhatsApp</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Camp Registration Dialog (Modal) -->
+    <div 
+      id="camp-modal" 
+      class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs items-center justify-center p-4 overflow-y-auto"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="camp-modal-title"
+    >
+      <div class="relative bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200">
+        
+        <div class="flex items-center justify-between mb-4">
+          <h3 id="camp-modal-title" class="text-xl font-bold text-slate-900" data-i18n="camp.modalTitle">
+            Register for Camp
+          </h3>
+          <button 
+            type="button" 
+            id="close-camp-modal-btn"
+            class="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-700 cursor-pointer"
+            aria-label="Close modal"
+          >
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed" data-i18n="camp.modalSubtitle">
+          Fill in the details below to open a pre-filled WhatsApp registration message. No data is stored on this website.
+        </p>
+
+        <form id="camp-registration-form" class="space-y-4">
+          <div>
+            <label for="camp-parent-name" class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="camp.parentName">
+              Parent / Guardian Name *
+            </label>
+            <input 
+              type="text" 
+              id="camp-parent-name" 
+              required 
+              class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:border-teal-700 focus:ring-1 focus:ring-teal-700"
+              placeholder="e.g. Ramesh Sharma"
+            />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="camp-child-age" class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="camp.childAge">
+                Patient / Child Age *
+              </label>
+              <input 
+                type="text" 
+                id="camp-child-age" 
+                required 
+                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:border-teal-700 focus:ring-1 focus:ring-teal-700"
+                placeholder="e.g. 4 years / 62 years"
+              />
+            </div>
+            <div>
+              <label for="camp-phone" class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="camp.phone">
+                Phone Number *
+              </label>
+              <input 
+                type="tel" 
+                id="camp-phone" 
+                required 
+                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:border-teal-700 focus:ring-1 focus:ring-teal-700"
+                placeholder="e.g. 98200XXXXX"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="camp-concern" class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="camp.concern">
+              Main Concern / Notes (Optional)
+            </label>
+            <textarea 
+              id="camp-concern" 
+              rows="2" 
+              class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:border-teal-700 focus:ring-1 focus:ring-teal-700"
+              placeholder="e.g. Speech delay / Hearing difficulty"
+            ></textarea>
+          </div>
+
+          <!-- Required Consent Checkbox -->
+          <div class="pt-2">
+            <label class="flex items-start gap-2 cursor-pointer text-xs text-slate-600 leading-snug">
+              <input 
+                type="checkbox" 
+                id="camp-consent" 
+                required 
+                class="mt-0.5 rounded text-teal-700 focus:ring-teal-700 w-4 h-4"
+              />
+              <span>
+                <span data-i18n="camp.consent">I agree to be contacted about this.</span> 
+                <a href="/privacy" target="_blank" class="text-teal-700 underline hover:text-teal-900">Privacy policy</a>.
+              </span>
+            </label>
+            <p class="text-[11px] text-slate-500 mt-1 pl-6" data-i18n="camp.remindersNote">
+              We may send appointment confirmation & reminders on WhatsApp.
+            </p>
+          </div>
+
+          <!-- Error Alert -->
+          <div id="camp-form-error" class="hidden text-xs text-rose-600 font-medium p-2 bg-rose-50 rounded border border-rose-200">
+            Please fill in all required fields and accept the consent checkbox.
+          </div>
+
+          <!-- Modal Action Buttons -->
+          <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+            <button 
+              type="button" 
+              id="cancel-camp-modal-btn"
+              class="px-4 py-2.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 cursor-pointer"
+              data-i18n="camp.cancel"
+            >
+              Cancel
+            </button>
+            <button 
+              type="submit" 
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-xs cursor-pointer"
+              data-i18n="camp.submit"
+            >
+              Continue to WhatsApp
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+)}
+
+<script>
+  import siteConfig from '../content/site.config.json';
+
+  const modal = document.getElementById('camp-modal');
+  const openBtn = document.getElementById('open-camp-modal-btn');
+  const closeBtn = document.getElementById('close-camp-modal-btn');
+  const cancelBtn = document.getElementById('cancel-camp-modal-btn');
+  const form = document.getElementById('camp-registration-form') as HTMLFormElement;
+  const errorEl = document.getElementById('camp-form-error');
+
+  function openModal() {
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const parentName = (document.getElementById('camp-parent-name') as HTMLInputElement)?.value.trim();
+      const childAge = (document.getElementById('camp-child-age') as HTMLInputElement)?.value.trim();
+      const phone = (document.getElementById('camp-phone') as HTMLInputElement)?.value.trim();
+      const concern = (document.getElementById('camp-concern') as HTMLTextAreaElement)?.value.trim();
+      const consent = (document.getElementById('camp-consent') as HTMLInputElement)?.checked;
+
+      if (!parentName || !childAge || !phone || !consent) {
+        if (errorEl) errorEl.classList.remove('hidden');
+        return;
+      }
+
+      if (errorEl) errorEl.classList.add('hidden');
+
+      // Track event without sensitive medical details
+      if (typeof (window as any).saukhyaTrack === 'function') {
+        (window as any).saukhyaTrack('camp_form_submit', { camp_title: siteConfig.camp.title });
+      }
+
+      // Format WhatsApp prefill message
+      const number = siteConfig.clinic.whatsappRaw || '919820000000';
+      const lines = [
+        `Hi, I want to register for the ${siteConfig.camp.title || 'Screening Camp'}.`,
+        '',
+        `• Parent/Patient Name: ${parentName}`,
+        `• Age: ${childAge}`,
+        `• Phone: ${phone}`,
+        concern ? `• Concern: ${concern}` : ''
+      ].filter(Boolean);
+
+      const waUrl = `https://wa.me/${number}?text=${encodeURIComponent(lines.join('\n'))}`;
+      
+      closeModal();
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+    });
+  }
+</script>

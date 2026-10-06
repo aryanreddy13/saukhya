@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" rx="12" fill="#EBF3F5"/>
+  <rect x="30" y="30" width="540" height="340" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <!-- Clinic Door & Glass Entrance -->
+  <rect x="220" y="100" width="160" height="230" rx="4" fill="#F0F7F9" stroke="#0E4E63" stroke-width="2"/>
+  <rect x="235" y="120" width="60" height="190" fill="#E2E8F0"/>
+  <rect x="305" y="120" width="60" height="190" fill="#E2E8F0"/>
+  <circle cx="288" cy="220" r="4" fill="#0E4E63"/>
+  <circle cx="312" cy="220" r="4" fill="#0E4E63"/>
+  <!-- Signboard above entrance -->
+  <rect x="180" y="50" width="240" height="36" rx="4" fill="#0E4E63"/>
+  <text x="300" y="73" font-family="'Noto Sans', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">SAUKHYA CLINIC</text>
+  <!-- Placeholder label -->
+  <rect x="60" y="310" width="480" height="36" rx="6" fill="#FFFFFF" stroke="#0E4E63" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="300" y="333" font-family="'Noto Sans', sans-serif" font-size="12" font-weight="600" fill="#0E4E63" text-anchor="middle">
+    [CLINIC_ENTRANCE_PHOTO: Vikhroli clinic front &amp; accessibility entrance]
+  </text>
+</svg>

@@ -1,0 +1,68 @@
+---
+const faqs = [
+  {
+    qKey: "faq.q1",
+    aKey: "faq.a1",
+    defaultQ: "What happens during the first speech or hearing consultation?",
+    defaultA: "During the first visit, our specialist conducts a detailed case history discussion and standard clinical assessment. For children, this is conducted through engaging, play-based activities to evaluate speech clarity, vocabulary, and comprehension without causing stress. For hearing concerns, an audiometric evaluation is performed."
+  },
+  {
+    qKey: "faq.q2",
+    aKey: "faq.a2",
+    defaultQ: "How long does an assessment session take?",
+    defaultA: "An initial consultation typically takes 45 to 60 minutes. This allows sufficient time for observation, testing, and a calm discussion with parents or family members about the findings."
+  },
+  {
+    qKey: "faq.q3",
+    aKey: "faq.a3",
+    defaultQ: "How do I know if my child needs a speech assessment?",
+    defaultA: "If your child is not meeting age-appropriate speech milestones (such as not using single words by 16–18 months, unclear speech past 3 years, difficulty following simple instructions, or noticeable stammering), an early evaluation helps identify if support is beneficial."
+  },
+  {
+    qKey: "faq.q4",
+    aKey: "faq.a4",
+    defaultQ: "Do I need to book an appointment before visiting?",
+    defaultA: "Yes, we recommend booking an appointment in advance via WhatsApp or phone so that our specialists can allocate dedicated, uninterrupted time for your consultation."
+  },
+  {
+    qKey: "faq.q5",
+    aKey: "faq.a5",
+    defaultQ: "What should I bring to our first visit?",
+    defaultA: "Please bring any previous medical records, past hearing test reports, school feedback reports (for school-age children), and a list of specific questions or observations you have noticed at home."
+  }
+];
+---
+
+<section class="py-12 sm:py-16 bg-white" aria-label="Frequently Asked Questions">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" data-i18n="faq.title">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 mt-2" data-i18n="faq.subtitle">
+        Helpful answers to common questions about appointments and assessments.
+      </p>
+    </div>
+
+    <!-- Accordion List -->
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group bg-slate-50/80 rounded-2xl border border-slate-200 overflow-hidden transition-all duration-200 open:bg-white open:shadow-xs open:border-teal-200">
+          <summary class="flex items-center justify-between p-5 text-left font-bold text-sm sm:text-base text-slate-900 cursor-pointer select-none focus:outline-none list-none">
+            <span data-i18n={faq.qKey}>{faq.defaultQ}</span>
+            <span class="ml-4 flex-shrink-0 text-slate-400 group-open:text-teal-700 transition-transform duration-200 group-open:rotate-180">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            <p data-i18n={faq.aKey}>{faq.defaultA}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

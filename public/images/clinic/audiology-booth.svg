@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" rx="12" fill="#E8EFF2"/>
+  <rect x="30" y="30" width="540" height="340" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <!-- Sound Treated Booth Graphic -->
+  <rect x="180" y="80" width="240" height="200" rx="8" fill="#F1F5F9" stroke="#0E4E63" stroke-width="2"/>
+  <rect x="210" y="110" width="180" height="110" rx="4" fill="#E2E8F0"/>
+  <!-- Sound acoustic wedges pattern -->
+  <path d="M210 110 L225 130 L240 110 L255 130 L270 110 L285 130 L300 110 L315 130 L330 110 L345 130 L360 110 L375 130 L390 110" stroke="#94A3B8" stroke-width="1.5"/>
+  <!-- Audiometer unit -->
+  <rect x="260" y="235" width="80" height="30" rx="4" fill="#0E4E63"/>
+  <circle cx="280" cy="250" r="5" fill="#D97736"/>
+  <circle cx="300" cy="250" r="5" fill="#38BDF8"/>
+  <circle cx="320" cy="250" r="5" fill="#FFFFFF"/>
+  <!-- Placeholder label -->
+  <rect x="60" y="310" width="480" height="36" rx="6" fill="#FFFFFF" stroke="#0E4E63" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="300" y="333" font-family="'Noto Sans', sans-serif" font-size="12" font-weight="600" fill="#0E4E63" text-anchor="middle">
+    [CLINIC_PHOTO_2: Sound-Treated Audiology Testing Booth]
+  </text>
+</svg>

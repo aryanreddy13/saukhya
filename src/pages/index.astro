@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import siteConfig from '../content/site.config.json';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import TeamCard from '../components/TeamCard.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CampBanner from '../components/CampBanner.astro';
+import ReviewSection from '../components/ReviewSection.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
+import VisitSection from '../components/VisitSection.astro';
+
+const speechServices = siteConfig.services.filter(s => s.category === 'speech_hearing').slice(0, 3);
+const audiologyServices = siteConfig.services.filter(s => s.category === 'audiology').slice(0, 2);
+---
+
+<Layout 
+  title="Saukhya Speech, Language & Hearing Clinic | Vikhroli, Mumbai"
+  description="Expert Speech Therapy, Pediatric Language Development, Hearing Tests & Hearing Aids in Vikhroli, Mumbai. Compassionate, qualified care for children and adults."
+  currentPath="/"
+>
+  <!-- 1. HERO -->
+  <Hero />
+
+  <!-- 2. TRUST STRIP -->
+  <TrustStrip />
+
+  <!-- 3. DOCTOR / SPECIALIST CARDS -->
+  <section class="py-12 sm:py-16 bg-white" aria-label="Our Doctors and Specialists">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-teal-800 uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60 inline-block mb-3">
+          Qualified Care
+        </span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="team.title">
+          Meet Our Specialists
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-2" data-i18n="team.subtitle">
+          Certified professionals dedicated to compassionate, personalized speech and hearing therapy.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        {siteConfig.team.map((member) => (
+          <TeamCard member={member} />
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. SERVICES PREVIEW -->
+  <section class="py-12 sm:py-16 bg-slate-50/70 border-t border-slate-200/80" aria-label="Services Offered">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs font-bold text-teal-800 uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60 inline-block mb-3">
+            Therapy &amp; Diagnosis
+          </span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="services.title">
+            Comprehensive Speech &amp; Hearing Care
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl" data-i18n="services.subtitle">
+            Tailored assessment and therapy plans designed around each patient's individual needs.
+          </p>
+        </div>
+
+        <a 
+          href="/services" 
+          class="inline-flex items-center gap-2 text-sm font-bold text-teal-800 hover:text-teal-950 transition-colors whitespace-nowrap"
+          data-i18n="services.seeAll"
+        >
+          See all services &amp; first visit guide →
+        </a>
+      </div>
+
+      <!-- GROUP 1: Speech & Hearing Specialist -->
+      <div class="mb-10">
+        <div class="mb-4">
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-teal-700"></span>
+            <span data-i18n="services.groupSpeech">Speech &amp; Language Therapy</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1" data-i18n="services.groupSpeechDesc">
+            Evidence-based therapy for speech clarity, stammering, and developmental communication delays.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {speechServices.map((service) => (
+            <ServiceCard service={service} />
+          ))}
+        </div>
+      </div>
+
+      <!-- GROUP 2: Audiologist -->
+      <div>
+        <div class="mb-4">
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span>
+            <span data-i18n="services.groupAudio">Audiology &amp; Hearing Care</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1" data-i18n="services.groupAudioDesc">
+            Diagnostic hearing evaluations, digital hearing aid trials, and customized listening solutions.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {audiologyServices.map((service) => (
+            <ServiceCard service={service} />
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. CAMP BANNER (Conditional) -->
+  <CampBanner />
+
+  <!-- 6. REVIEWS -->
+  <ReviewSection />
+
+  <!-- 7. CLINIC PHOTOS (3 High-Quality Photos with Lightbox) -->
+  <PhotoGallery photos={siteConfig.photos.gallery} />
+
+  <!-- 8. VISIT US & MAP -->
+  <VisitSection />
+
+</Layout>

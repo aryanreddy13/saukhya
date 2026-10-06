@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <rect width="100" height="100" rx="20" fill="#FDF6F0"/>
+  <!-- Hearing aid BTE silhouette -->
+  <path d="M40 25 C55 20 68 30 65 50 C62 65 52 75 40 75 C35 75 30 70 32 65 C34 60 40 60 44 60 C52 60 55 52 55 45 C55 35 48 32 40 35 Z" fill="#0E4E63"/>
+  <path d="M32 65 C28 65 24 55 24 45 C24 35 32 30 38 28" stroke="#D97736" stroke-width="3" stroke-linecap="round"/>
+</svg>

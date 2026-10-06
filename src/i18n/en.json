@@ -1,0 +1,195 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "contact": "Contact",
+    "call": "Call Now",
+    "whatsapp": "WhatsApp",
+    "directions": "Directions"
+  },
+  "hero": {
+    "headline": "Helping Children and Adults Communicate, Hear and Connect Better.",
+    "subheadline": "Compassionate, evidence-based speech, language and hearing care in Vikhroli, Mumbai.",
+    "ctaWhatsApp": "Book on WhatsApp",
+    "ctaCall": "Call Clinic",
+    "badge": "Speech & Hearing Care · Vikhroli"
+  },
+  "status": {
+    "openNow": "Open now",
+    "opensToday": "Opens today at {time}",
+    "opensTomorrow": "Closed · Opens tomorrow at {time}",
+    "opensDay": "Closed · Opens {day} at {time}",
+    "closed": "Closed today",
+    "holiday": "Clinic closed today ({reason})"
+  },
+  "trust": {
+    "googleRating": "Google Rating",
+    "reviews": "Verified Reviews",
+    "experience": "Years Experience",
+    "services": "Services Under One Roof",
+    "languages": "Languages Spoken"
+  },
+  "team": {
+    "title": "Meet Our Specialists",
+    "subtitle": "Certified professionals dedicated to compassionate, personalized speech and hearing therapy.",
+    "qualifications": "Qualifications",
+    "specialization": "Areas of Focus",
+    "languages": "Languages",
+    "experience": "Experience"
+  },
+  "services": {
+    "title": "Comprehensive Speech & Hearing Care",
+    "subtitle": "Tailored assessment and therapy plans designed around each patient's individual needs.",
+    "groupSpeech": "Speech & Language Therapy",
+    "groupSpeechDesc": "Evidence-based therapy for speech clarity, stammering, and developmental communication delays.",
+    "groupAudio": "Audiology & Hearing Care",
+    "groupAudioDesc": "Diagnostic hearing evaluations, digital hearing aid trials, and customized listening solutions.",
+    "bookService": "Book {service} on WhatsApp",
+    "whoItHelps": "Who this helps:",
+    "seeAll": "See all services & first visit guide →",
+    "introHeadline": "Personalized Speech, Language & Hearing Solutions",
+    "introSubtitle": "Every voice and every hearing profile is unique. We provide patient-first consultations and structured therapy plans for all age groups."
+  },
+  "howItWorks": {
+    "title": "How Your First Visit Works",
+    "subtitle": "A simple, transparent 4-step journey designed to make your experience comfortable and reassuring.",
+    "step1Title": "1. Book Appointment",
+    "step1Desc": "Reach out via WhatsApp or phone to choose a convenient consultation time slot.",
+    "step2Title": "2. Assessment & Discussion",
+    "step2Desc": "Our specialist conducts a thorough evaluation and listens closely to your family's concerns.",
+    "step3Title": "3. Personalized Care Plan",
+    "step3Desc": "We outline practical milestones, session recommendations, and home practice exercises.",
+    "step4Title": "4. Regular Progress Review",
+    "step4Desc": "Continuous guidance, progress tracking, and supportive family counseling at every step."
+  },
+  "pricing": {
+    "title": "Consultation & Fees",
+    "subtitle": "Transparent and affordable clinical care.",
+    "fromLabel": "Consultation from",
+    "contactLabel": "Message us for fees & appointment slots",
+    "cta": "Inquire About Fees on WhatsApp",
+    "disclaimer": "Fees may vary depending on the specific assessment or therapy service required. Please contact the clinic for current details."
+  },
+  "camp": {
+    "badge": "Community Health Initiative",
+    "button": "Register on WhatsApp",
+    "modalTitle": "Register for Camp",
+    "modalSubtitle": "Fill in the details below to open a pre-filled WhatsApp registration message.",
+    "parentName": "Parent / Guardian Name",
+    "childAge": "Patient / Child Age",
+    "phone": "Phone Number",
+    "concern": "Main Concern / Notes (Optional)",
+    "consent": "I agree to be contacted by Saukhya Clinic regarding this camp registration.",
+    "remindersNote": "We may send appointment confirmation & reminders on WhatsApp.",
+    "submit": "Continue to WhatsApp",
+    "cancel": "Cancel",
+    "validationError": "Please fill in all required fields and accept the consent checkbox."
+  },
+  "reviews": {
+    "title": "Patient & Parent Experiences",
+    "subtitle": "Real feedback from families who visited our Vikhroli clinic.",
+    "cta": "Rate & Review on Google",
+    "ratingSummary": "5.0 out of 5 based on Google Reviews"
+  },
+  "gallery": {
+    "title": "Inside Our Clinic",
+    "subtitle": "A warm, sanitized, and child-friendly environment designed for comfortable therapy.",
+    "tapToEnlarge": "Click or tap image to enlarge",
+    "closeLightbox": "Close gallery preview"
+  },
+  "visit": {
+    "title": "Visit Saukhya Clinic",
+    "subtitle": "Conveniently located near Vikhroli railway station in Mumbai.",
+    "addressTitle": "Clinic Address",
+    "timingsTitle": "Clinic Timings",
+    "landmarkTitle": "Landmark & Proximity",
+    "parkingTitle": "Parking Facility",
+    "entranceTitle": "Entrance & Accessibility",
+    "directionsBtn": "Get Directions on Google Maps",
+    "callBtn": "Call Clinic",
+    "whatsappBtn": "WhatsApp Us",
+    "closedDay": "Closed"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Helpful answers to common questions about appointments and assessments.",
+    "q1": "What happens during the first speech or hearing consultation?",
+    "a1": "During the first visit, our specialist conducts a detailed case history discussion and standard clinical assessment. For children, this is conducted through engaging, play-based activities to evaluate speech clarity, vocabulary, and comprehension without causing stress. For hearing concerns, an audiometric evaluation is performed.",
+    "q2": "How long does an assessment session take?",
+    "a2": "An initial consultation typically takes 45 to 60 minutes. This allows sufficient time for observation, testing, and a calm discussion with parents or family members about the findings.",
+    "q3": "How do I know if my child needs a speech assessment?",
+    "a3": "If your child is not meeting age-appropriate speech milestones (such as not using single words by 16–18 months, unclear speech past 3 years, difficulty following simple instructions, or noticeable stammering), an early evaluation helps identify if support is beneficial.",
+    "q4": "Do I need to book an appointment before visiting?",
+    "a4": "Yes, we recommend booking an appointment in advance via WhatsApp or phone so that our specialists can allocate dedicated, uninterrupted time for your consultation.",
+    "q5": "What should I bring to our first visit?",
+    "a5": "Please bring any previous medical records, past hearing test reports, school feedback reports (for school-age children), and a list of specific questions or observations you have noticed at home."
+  },
+  "about": {
+    "storyTitle": "Our Story & Purpose",
+    "storyP1": "Saukhya was founded with a single mission: to provide empathetic, evidence-based speech, language, and hearing care to families in and around Vikhroli, Mumbai.",
+    "storyP2": "Communication and hearing are fundamental to how we learn, express emotions, and connect with loved ones. We strive to make therapy an encouraging, stress-free experience for children, adults, and seniors alike.",
+    "approachTitle": "Our Clinical Approach",
+    "approachP": "We believe effective care starts with listening. We prioritize thorough clinical assessments, realistic milestone setting, transparent parent counseling, and engaging home practice routines. We do not make exaggerated outcome guarantees; we focus on steady, measurable progress.",
+    "reasonsTitle": "Why Families Trust Saukhya",
+    "reason1Title": "Qualified, RCI-Registered Specialists",
+    "reason1Desc": "Ethical care delivered by trained professionals adhering to recognized clinical standards.",
+    "reason2Title": "Child-Friendly, Stress-Free Space",
+    "reason2Desc": "A welcoming, toy-assisted environment where children feel safe and excited to participate.",
+    "reason3Title": "Family & Caregiver Involvement",
+    "reason3Desc": "Parents are guided at every stage with practical strategies for daily home reinforcement.",
+    "reason4Title": "Speech & Hearing Under One Roof",
+    "reason4Desc": "Integrated diagnosis and rehabilitation without having to travel to multiple centers.",
+    "reason5Title": "Central Vikhroli Location",
+    "reason5Desc": "Easily accessible for families across Eastern Mumbai and Central suburbs.",
+    "communityTitle": "Community Health Outreach",
+    "communityDesc": "We regularly organize community awareness initiatives and free screening camps to identify developmental speech and hearing concerns early.",
+    "promiseTitle": "Our Commitment to You",
+    "promiseDesc": "Honesty, patient dignity, privacy, and clear communication are at the heart of everything we do. We will always give you our objective clinical guidance."
+  },
+  "ctaSection": {
+    "title": "Ready to take the first step?",
+    "subtitle": "Have a question or want to schedule an evaluation? Connect with our team today.",
+    "btnWhatsApp": "Book on WhatsApp",
+    "btnCall": "Call Clinic"
+  },
+  "footer": {
+    "tagline": "Empathetic, evidence-based speech and hearing therapy in Vikhroli, Mumbai.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Information",
+    "timings": "Clinic Timings",
+    "privacy": "Privacy Policy",
+    "reviewUs": "Leave a Google Review",
+    "rights": "All rights reserved. Saukhya Speech & Hearing Clinic.",
+    "nearStation": "Near Vikhroli Railway Station",
+    "parkingNotice": "Parking: {parking} · Entrance: {entrance}"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "How we handle your information with care and confidentiality.",
+    "lastUpdated": "Last updated: October 2026",
+    "intro": "At Saukhya Speech, Language and Hearing Clinic, we are committed to protecting the privacy and personal data of our patients, parents, and website visitors in accordance with the Digital Personal Data Protection (DPDP) Act of India.",
+    "collectionTitle": "1. Information We Collect",
+    "collectionDesc": "When you contact us via WhatsApp, phone, or optional camp registration forms, we may receive your name, phone number, and brief description of your inquiry. We only use this information to respond to your inquiry and schedule appointments.",
+    "noMedicalTitle": "2. What We Do NOT Collect On This Website",
+    "noMedicalDesc": "This website does not store medical history, diagnosis records, or payment card details. No medical forms or health data are collected or processed by third-party tracking scripts on this website.",
+    "whatsappTitle": "3. WhatsApp Communication",
+    "whatsappDesc": "When you click our WhatsApp booking buttons, your device directly opens WhatsApp to send a message to our clinic number. WhatsApp's own end-to-end encryption and terms apply to your chat.",
+    "analyticsTitle": "4. Website Analytics & Cookies",
+    "analyticsDesc": "We use lightweight, privacy-conscious analytics to count total page visits and understand high-level button clicks (e.g. click to call). We do NOT track individual personal identities, IP addresses, or cross-site behaviors.",
+    "noSharingTitle": "5. No Sale of Personal Data",
+    "noSharingDesc": "We never sell, rent, or trade your personal information to third parties, advertisers, or marketing agencies.",
+    "rightsTitle": "6. Your Rights & Data Deletion",
+    "rightsDesc": "You may request the deletion or correction of your contact details at any time by contacting our clinic directly via phone or email.",
+    "contactTitle": "7. Contact Us Regarding Privacy",
+    "contactDesc": "If you have questions about this privacy notice, please reach out to us at contact@saukhyaclinic.com or call our clinic."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "subtitle": "Sorry, we couldn't find the page you were looking for.",
+    "description": "The link might be outdated, or the address may have been entered incorrectly.",
+    "goHome": "Go to Home",
+    "whatsapp": "Chat on WhatsApp",
+    "call": "Call Clinic"
+  }
+}

@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import siteConfig from '../content/site.config.json';
+import { getWhatsAppLink } from '../utils/whatsapp';
+import ServiceCard from '../components/ServiceCard.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import FeeSection from '../components/FeeSection.astro';
+import FAQ from '../components/FAQ.astro';
+import CTASection from '../components/CTASection.astro';
+
+const speechServices = siteConfig.services.filter(s => s.category === 'speech_hearing');
+const audiologyServices = siteConfig.services.filter(s => s.category === 'audiology');
+const primaryWhatsAppLink = getWhatsAppLink();
+---
+
+<Layout 
+  title="Speech & Hearing Services | Saukhya Clinic Vikhroli"
+  description="Explore our specialized Speech Therapy, Language Intervention, Audiometry, and Hearing Aid Consultation services in Vikhroli, Mumbai."
+  currentPath="/services"
+>
+  
+  <!-- 1. INTRO -->
+  <section class="pt-10 pb-12 sm:pt-14 sm:pb-16 bg-linear-to-b from-teal-50/70 to-white border-b border-slate-200/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs font-bold text-teal-800 uppercase tracking-wider bg-teal-100/70 px-3 py-1 rounded-full border border-teal-200 inline-block mb-3">
+        Clinical Services
+      </span>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4" data-i18n="services.introHeadline">
+        Personalized Speech, Language &amp; Hearing Solutions
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-8" data-i18n="services.introSubtitle">
+        Every voice and every hearing profile is unique. We provide patient-first consultations and structured therapy plans for all age groups.
+      </p>
+
+      <div class="flex items-center justify-center">
+        <a 
+          href={primaryWhatsAppLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-sm sm:text-base font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all active:scale-98 min-h-[48px]"
+          data-event="whatsapp_click"
+          data-event-label="services_hero_whatsapp"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.678.077-1.138-.073-.298-.098-.679-.228-1.229-.467-2.345-1.018-3.874-3.4-3.993-3.559-.117-.159-.958-1.275-.958-2.43 0-1.157.607-1.724.823-1.96.216-.236.471-.295.628-.295.157 0 .314.002.451.009.147.007.345-.056.54.412.206.495.706 1.722.765 1.843.06.12.1.261.02.421-.08.16-.12.26-.24.4-.12.14-.251.312-.36.42-.12.12-.244.25-.105.49.14.24.62 1.024 1.33 1.657.915.815 1.688 1.068 1.928 1.188.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.08.985z"/>
+          </svg>
+          <span data-i18n="hero.ctaWhatsApp">Book on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. SPEECH & HEARING SPECIALIST -->
+  <section class="py-12 sm:py-16 bg-white" aria-label="Speech and Language Therapy Services">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-8">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
+          <span class="w-3 h-3 rounded-full bg-teal-700"></span>
+          <span data-i18n="services.groupSpeech">Speech &amp; Language Therapy</span>
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-1 max-w-3xl" data-i18n="services.groupSpeechDesc">
+          Evidence-based therapy for speech clarity, stammering, and developmental communication delays.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {speechServices.map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. AUDIOLOGIST & EQUIPMENT PHOTO SLOTS -->
+  <section class="py-12 sm:py-16 bg-slate-50/70 border-t border-slate-200" aria-label="Audiology and Hearing Services">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-8">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
+          <span class="w-3 h-3 rounded-full bg-amber-600"></span>
+          <span data-i18n="services.groupAudio">Audiology &amp; Hearing Care</span>
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-1 max-w-3xl" data-i18n="services.groupAudioDesc">
+          Diagnostic hearing evaluations, digital hearing aid trials, and customized listening solutions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        {audiologyServices.map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+
+      <!-- Equipment Photo Slots (Clearly Labeled Placeholders) -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200">
+        <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
+          Diagnostic Testing &amp; Audiology Booth
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 mb-6">
+          Our clinic features dedicated sound-treated testing facilities for accurate pure-tone audiometry and hearing threshold evaluation.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 aspect-16/10">
+            <img 
+              src="/images/clinic/audiology-booth.svg" 
+              alt="Sound-Treated Audiology Booth at Saukhya Clinic"
+              class="w-full h-full object-cover"
+              width="600"
+              height="400"
+              loading="lazy"
+            />
+          </div>
+          <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 aspect-16/10">
+            <img 
+              src="/images/clinic/consultation-area.svg" 
+              alt="Hearing Aid Counseling & Consultation Area"
+              class="w-full h-full object-cover"
+              width="600"
+              height="400"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. HOW YOUR FIRST VISIT WORKS -->
+  <HowItWorks />
+
+  <!-- 5. FEES -->
+  <FeeSection />
+
+  <!-- 6. FAQ -->
+  <FAQ />
+
+  <!-- 7. CTA -->
+  <CTASection 
+    titleKey="ctaSection.title"
+    subtitleKey="ctaSection.subtitle"
+  />
+
+</Layout>

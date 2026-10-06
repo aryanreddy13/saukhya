@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="16" fill="#FDF6F0"/>
+  <circle cx="200" cy="150" r="60" fill="#0E4E63"/>
+  <!-- Audiologist / Hearing Diagnostic Symbol -->
+  <path d="M110 320 C110 240 150 220 200 220 C250 220 290 240 290 320" fill="#0E4E63"/>
+  <!-- Headphones / Otoscope representation -->
+  <path d="M130 150 C130 100 270 100 270 150" stroke="#D97736" stroke-width="6" stroke-linecap="round"/>
+  <rect x="120" y="140" width="20" height="30" rx="6" fill="#D97736"/>
+  <rect x="260" y="140" width="20" height="30" rx="6" fill="#D97736"/>
+  <!-- Placeholder Label -->
+  <rect x="30" y="340" width="340" height="34" rx="6" fill="#FFFFFF" stroke="#0E4E63" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="200" y="362" font-family="'Noto Sans', sans-serif" font-size="12" font-weight="600" fill="#0E4E63" text-anchor="middle">
+    [DOCTOR_PHOTO: Verified Doctor 2 Portrait]
+  </text>
+</svg>

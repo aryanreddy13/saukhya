@@ -1,0 +1,39 @@
+---
+interface Props {
+  variant?: 'header' | 'mobile' | 'footer';
+  class?: string;
+}
+
+const { variant = 'header', class: className = '' } = Astro.props;
+---
+
+<div 
+  class={`inline-flex items-center rounded-lg bg-slate-100 p-1 border border-slate-200/80 text-xs font-medium ${className}`}
+  role="group"
+  aria-label="Select website language"
+>
+  <button
+    type="button"
+    data-lang-select="en"
+    class="px-2.5 py-1.5 rounded-md transition-all duration-150 cursor-pointer bg-teal-700 text-white font-semibold shadow-xs"
+    aria-pressed="true"
+  >
+    English
+  </button>
+  <button
+    type="button"
+    data-lang-select="hi"
+    class="px-2.5 py-1.5 rounded-md transition-all duration-150 cursor-pointer text-slate-700 hover:bg-slate-200/60"
+    aria-pressed="false"
+  >
+    हिन्दी
+  </button>
+  <button
+    type="button"
+    data-lang-select="mr"
+    class="px-2.5 py-1.5 rounded-md transition-all duration-150 cursor-pointer text-slate-700 hover:bg-slate-200/60"
+    aria-pressed="false"
+  >
+    मराठी
+  </button>
+</div>
